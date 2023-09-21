@@ -1,0 +1,14 @@
+﻿# Rider-specific settings
+.idea/
+
+# Visual Studio-specific files (optional, if your friends want to exclude them)
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Other common exclusions (you can customize this as needed)
+bin/
+obj/
+*.dll
+*.exe
