@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearningManagementSystem.Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230922164600_UpdateCourseModel")]
+    [Migration("20230922165510_UpdateCourseModel")]
     partial class UpdateCourseModel
     {
         /// <inheritdoc />
@@ -126,9 +126,6 @@ namespace LearningManagementSystem.Web.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("InstructorId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
