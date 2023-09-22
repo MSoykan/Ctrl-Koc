@@ -28,5 +28,4 @@ public class AppDbContext : DbContext
             .HasForeignKey(sc => sc.StudentId) // Set StudentId as the foreign key
             .OnDelete(DeleteBehavior.NoAction);
     }
-
-    }
+}

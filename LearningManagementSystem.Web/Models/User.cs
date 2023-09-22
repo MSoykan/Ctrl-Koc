@@ -8,7 +8,7 @@ public class User
     public string Email { get; set; }
     public string Password { get; set; }
     public char Role { get; set; }
-    public Course Course { get; set; }
+    public List<Course> Courses { get; set; }
     public List<Assignment> Assignments { get; set; }
     public List<StudentCourse> StudentCourses { get; set; }
 }
