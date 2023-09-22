@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj": {}
+    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj": {
+    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj",
+        "projectUniqueName": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj",
         "projectName": "LearningManagementSystem.Web",
-        "projectPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj",
+        "projectPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj",
         "packagesPath": "C:\\Users\\EMREBAYKUŞAK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\obj\\",
+        "outputPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,28 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
