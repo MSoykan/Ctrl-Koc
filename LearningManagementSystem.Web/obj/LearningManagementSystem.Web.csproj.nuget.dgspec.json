@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj": {}
+    "D:\\Programming\\Ctrl-Koc\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj": {
+    "D:\\Programming\\Ctrl-Koc\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj",
+        "projectUniqueName": "D:\\Programming\\Ctrl-Koc\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj",
         "projectName": "LearningManagementSystem.Web",
-        "projectPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj",
-        "packagesPath": "C:\\Users\\EMREBAYKUŞAK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\obj\\",
+        "projectPath": "D:\\Programming\\Ctrl-Koc\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj",
+        "packagesPath": "C:\\Users\\esinb\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\Ctrl-Koc\\LearningManagementSystem.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
         ],
         "configFilePaths": [
-          "C:\\Users\\EMREBAYKUŞAK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\esinb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,6 +64,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             }
           },
           "imports": [
@@ -85,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
