@@ -8,7 +8,7 @@ public class Course
     public string Title { get; set; }
     public string Description { get; set; }
     public List<User>? Users { get; set; }
-    public List<Material> Materials { get; set; }
-    public List<Assignment> Assignments { get; set; }
-    public List<StudentCourse> StudentCourses { get; set; }
+    public List<Material>? Materials { get; set; }
+    public List<Assignment>? Assignments { get; set; }
+    public List<StudentCourse>?  StudentCourses { get; set; }
 }
