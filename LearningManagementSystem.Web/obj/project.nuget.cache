@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lh4qlhMf9Nm18ZG4ihVQBc7rnNGA5op9mvjo+T1XV8qEpWCfi8K7/8q0OmOAqMi5c06/6u2qlteEP/LQ0zl7bA==",
+  "dgSpecHash": "QlzDuPP3w5Q7qBWgREn31J9B+hNchHel/D6PC9VPh8AgHPPPFv8GOq9tmUjQjI0E2/dINUYeMKYfE+CPHv4edg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\learningmanagementsystem.web\\LearningManagementSystem.Web.csproj",
+  "projectFilePath": "C:\\Users\\EMREBAYKUŞAK\\RiderProjects\\LearningManagementSystem\\LearningManagementSystem.Web\\LearningManagementSystem.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EMREBAYKUŞAK\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\EMREBAYKUŞAK\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
