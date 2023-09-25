@@ -9,6 +9,10 @@ public class AppDbContext : DbContext
         
     }
 
+    public AppDbContext()
+    {
+    }
+
     public DbSet<User> Users { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Material> Materials { get; set; }
@@ -27,5 +31,10 @@ public class AppDbContext : DbContext
             .WithMany(u => u.StudentCourses) // Assuming you have a navigation property in User class for StudentCourses
             .HasForeignKey(sc => sc.StudentId) // Set StudentId as the foreign key
             .OnDelete(DeleteBehavior.NoAction);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("server=LAPTOP-C413PEVC\\SQLEXPRESS; database=LearningManagementSystem; integrated security=true;TrustServerCertificate = True;");
     }
 }
