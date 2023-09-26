@@ -5,7 +5,7 @@ namespace LearningManagementSystem.Web.Models;
 
 public class StudentCourse
 {
-    public int StudentId { get; set; }
+    public string StudentId { get; set; }
     public int CourseId { get; set; }
     public bool CompletionStatus { get; set; }
     public DateTime EnrollmentDate { get; set; }
