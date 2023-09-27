@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Material</h4>
+<h4>Create Assignment</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -26,6 +25,7 @@
                 <label asp-for="ContentPath" class="control-label"></label>
                 <input asp-for="ContentPath" class="form-control" />
                 <span asp-validation-for="ContentPath" class="text-danger"></span>
+                <div> &nbsp </div>
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

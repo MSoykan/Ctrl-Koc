@@ -12,3 +12,5 @@ bin/
 obj/
 *.dll
 *.exe
+
+AdminLTE-3.0.4/
