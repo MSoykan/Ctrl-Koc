@@ -22,4 +22,12 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\css\simple.css" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\Shared\Components" />
+    </ItemGroup>
+    
 </Project>

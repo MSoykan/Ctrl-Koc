@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LearningManagementSystem.Web.Utils;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearningManagementSystem.Web.Controllers
 {
@@ -48,7 +50,12 @@ namespace LearningManagementSystem.Web.Controllers
         // GET: /User/Create
         public IActionResult Create()
         {
-            return View();
+            if (JwtUtils.IsUserAdminBasedOnToken(HttpContext))
+            {
+                return View();
+            }
+            return Unauthorized();
+
         }
 
         // POST: /User/Create
@@ -56,32 +63,36 @@ namespace LearningManagementSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(User model)
         {
-            if (ModelState.IsValid)
+            if (JwtUtils.IsUserAdminBasedOnToken(HttpContext))
             {
-                var user = new User
+                if (ModelState.IsValid)
                 {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Password = model.Password,
-                    Role = model.Role
-                };
+                    var user = new User
+                    {
+                        UserName = model.Email,
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Password = model.Password,
+                        Role = model.Role
+                    };
 
-                var result = await _userManager.CreateAsync(user, model.Password);
+                    var result = await _userManager.CreateAsync(user, model.Password);
 
-                if (result.Succeeded)
-                {
-                    return RedirectToAction(nameof(Index));
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                return View(model);
             }
-
-            return View(model);
+            return Unauthorized();
         }
 
         // GET: /User/Edit/5

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LearningManagementSystem.Web.Models.Course>
+﻿@model IEnumerable<LearningManagementSystem.Web.ViewModels.CourseViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -11,25 +11,34 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Course Title</th>
+        <th>Course Description</th>
+        <th>Material Title</th>
+        <th>Material Description</th>
+    </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>@item.Id</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @if (!string.IsNullOrEmpty(item.ImagePath))
+                {
+                    <img style="width: 100px; height: 100px;" src="/images/@(item.ImagePath)"/>
+                }
+                else
+                {
+                    <img style="width: 100px; height: 100px;" src="/images/No-Image-Placeholder.svg.png"/>
+                
+                }
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.MaterialTitle</td>
+            <td>@item.MaterialDescription</td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

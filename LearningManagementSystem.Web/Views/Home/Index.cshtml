@@ -6,8 +6,16 @@
     <title>Home Page</title>
 </head>
 <body>
-
-<p>Welcome, @Model.Username!</p>
+@{
+    if (Model.Username == null)
+    {
+        <p>Welcome, Guest!</p>   
+    }
+    else
+    {
+        <p>Welcome, @Model.Username!</p>
+    }
+}
 
 <!-- Other HTML and Razor code to display additional ViewModel properties -->
 

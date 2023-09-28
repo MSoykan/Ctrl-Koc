@@ -1,6 +1,8 @@
 ﻿using LearningManagementSystem.Web.Models;
 using LearningManagementSystem.Web.Services;
+using LearningManagementSystem.Web.Utils;
 using LearningManagementSystem.Web.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -9,6 +11,7 @@ namespace LearningManagementSystem.Web.Controllers;
 public class AuthController : Controller
 {
     private readonly IAuthService _authService;
+    
     
     public AuthController(IAuthService authService)
     {
@@ -36,7 +39,9 @@ public class AuthController : Controller
             string serializedUser = JsonConvert.SerializeObject(model);
             
             TempData["LoggedInUser"] = serializedUser;
-
+            
+            HttpContext.Session.SetString("JWTToken", token);
+            
             return RedirectToAction("Index", "Home", new {mode = "login"});
         }
         catch(Exception ex)
@@ -54,7 +59,7 @@ public class AuthController : Controller
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid payload");
-            var (status, message) = await _authService.Registration(model, UserRoles.Admin);
+            var (status, message,token) = await _authService.Registration(model, UserRoles.Admin);
             if (status == 0)
             {
                 return BadRequest(message);
@@ -64,6 +69,8 @@ public class AuthController : Controller
 
             // Store user information in TempData
             TempData["RegisteredUser"] = serializedUser;
+            
+            HttpContext.Session.SetString("JWTToken", token);
             
             return RedirectToAction("Index", "Home",new { mode = "register" });
 

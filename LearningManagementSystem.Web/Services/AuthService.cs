@@ -4,6 +4,7 @@ using System.Text;
 using LearningManagementSystem.Web.Models;
 using LearningManagementSystem.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace LearningManagementSystem.Web.Services;
@@ -13,18 +14,20 @@ public class AuthService : IAuthService
         private readonly UserManager<User> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
-        public AuthService(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        private readonly AppDbContext _context;
+        public AuthService(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, AppDbContext context)
         {
+            _context = context;
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
 
         }
-        public async Task<(int,string)> Registration(RegistrationModel model,string role)
+        public async Task<(int,string,string)> Registration(RegistrationModel model,string role)
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
             if (userExists != null)
-                return (0, "User already exists");
+                return (0, "User already exists", null);
 
             User user = new()
             {
@@ -38,7 +41,7 @@ public class AuthService : IAuthService
             };
             var createUserResult = await userManager.CreateAsync(user, model.Password);
             if (!createUserResult.Succeeded)
-                return (0,"User creation failed! Please check user details and try again.");
+                return (0, "User creation failed! Please check user details and try again", null);
 
             if (!await roleManager.RoleExistsAsync(role))
                 await roleManager.CreateAsync(new IdentityRole(role));
@@ -46,7 +49,21 @@ public class AuthService : IAuthService
             if (await roleManager.RoleExistsAsync(role))
                 await userManager.AddToRoleAsync(user, role);
 
-            return (1,"User created successfully!");
+            // Generate JWT token for the registered user
+            var authClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+            };
+
+            if (!string.IsNullOrEmpty(user.Role))
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, user.Role));
+            }
+
+            string token = GenerateToken(authClaims);
+            
+            
+            return (1, "User created successfully", token);
         }
 
         public async Task<(int,string)> Login(LoginModel model)
@@ -56,19 +73,23 @@ public class AuthService : IAuthService
                 return (0, "Invalid username");
             if (!await userManager.CheckPasswordAsync(user, model.Password))
                 return (0, "Invalid password");
-            
-            var userRoles = await userManager.GetRolesAsync(user);
+
+            var userRole = await _context.Users
+                .Where(u => u.Id == user.Id)
+                .Select(ur => ur.Role)
+                .FirstOrDefaultAsync();
             var authClaims = new List<Claim>
             {
                new Claim(ClaimTypes.Name, user.UserName),
                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
-            foreach (var userRole in userRoles)
+            if (!string.IsNullOrEmpty(userRole))
             {
-              authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+                authClaims.Add(new Claim(ClaimTypes.Role, userRole));
             }
             string token = GenerateToken(authClaims);
+
             return (1, token);
         }
 
