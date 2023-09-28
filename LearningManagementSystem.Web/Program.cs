@@ -43,6 +43,14 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddSession(options =>
+{
+    // Set a short timeout for testing purposes (replace with your desired timeout)
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust the timeout as needed
+    options.Cookie.HttpOnly = true; // Make the session cookie HttpOnly (recommended for security)
+    options.Cookie.IsEssential = true; // Make the session cookie essential (for GDPR compliance)
+});
+
 
 var app = builder.Build();
 
@@ -59,12 +67,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Auth}/{action=Login}/{id?}");
+    pattern: "{controller=Auth}/{action=Index}/{id?}");
+
 
 app.Run();
