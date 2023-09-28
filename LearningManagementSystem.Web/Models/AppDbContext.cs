@@ -10,11 +10,7 @@ public class AppDbContext : IdentityDbContext<User>
     {
         
     }
-
-    public AppDbContext()
-    {
-    }
-
+    
     public DbSet<User> Users { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Material> Materials { get; set; }
