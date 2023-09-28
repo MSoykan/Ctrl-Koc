@@ -10,5 +10,5 @@ public class StudentCourse
     public bool CompletionStatus { get; set; }
     public DateTime EnrollmentDate { get; set; }
     public User User { get; set; }
-    public Course Course { get; set; }
+    public Course Course { get; set; }    
 }

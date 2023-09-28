@@ -4,6 +4,7 @@ using LearningManagementSystem.Web.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -49,6 +50,15 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust the timeout as needed
     options.Cookie.HttpOnly = true; // Make the session cookie HttpOnly (recommended for security)
     options.Cookie.IsEssential = true; // Make the session cookie essential (for GDPR compliance)
+});
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
+
+builder.Services.AddAuthorization(options =>
+{
+ options.AddPolicy("AdminPolicy", policy => policy.RequireRole(UserRoles.Admin));
 });
 
 

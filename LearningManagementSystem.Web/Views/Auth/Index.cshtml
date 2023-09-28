@@ -1,33 +1,16 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewBag.Title = "Sign In or Sign Up";
+    Layout = "_SimpleLayout"; // Use the new layout
 }
 
-<h2>Index</h2>
+<div class="auth-container">
+    <h2>Welcome to Our App</h2>
+    <p>Please sign in or sign up to get started.</p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/signin.css" asp-append-version="true">
-    <title>Sign In</title>
-</head>
-<body>
-<header>
-    <nav>
-        @* <ul class="nav-links"> *@
-        @*     <li><a href="main_page.html">Main Page</a></li> *@
-        @*     <li><a href="courses.html">Courses</a></li> *@
-        @* </ul> *@
-        
-        <div class="user-box">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="LoginView">Sign In</a>
-            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Registration">Sign Up</a>
-        </div>
-    </nav>
-</header>
-</body>
-</html>
+    <div class="auth-buttons">
+        <a href="/Auth/LoginView" class="btn btn-primary">Sign In</a>
+        <a href="/Auth/Registration" class="btn btn-secondary">Sign Up</a>
+    </div>
+</div>
