@@ -14,6 +14,11 @@ public class AuthController : Controller
     {
         _authService = authService;
     }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
     
     [HttpPost]
     [Route("login")]
@@ -22,17 +27,24 @@ public class AuthController : Controller
         try
         {
             if (!ModelState.IsValid)
-                return BadRequest("Invalid payload");
-            var (status, message) = await _authService.Login(model);
+                return BadRequest("Invalid payload");   
+        
+            var (status, token) = await _authService.Login(model);
+        
             if (status == 0)
-                return BadRequest(message);
-            return Ok(message);
+                return BadRequest(token);
+            string serializedUser = JsonConvert.SerializeObject(model);
+            
+            TempData["LoggedInUser"] = serializedUser;
+
+            return RedirectToAction("Index", "Home", new {mode = "login"});
         }
         catch(Exception ex)
         {
             return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
     }
+
     
     [HttpPost]
     [Route("registration")]
@@ -53,7 +65,7 @@ public class AuthController : Controller
             // Store user information in TempData
             TempData["RegisteredUser"] = serializedUser;
             
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home",new { mode = "register" });
 
         }
         catch (Exception ex)
@@ -63,7 +75,7 @@ public class AuthController : Controller
     }
 
     // GET
-    public IActionResult Login()
+    public IActionResult LoginView()
     {
         return View("Login");
     }

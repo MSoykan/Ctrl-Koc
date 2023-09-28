@@ -9,81 +9,109 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LearningManagementSystem.Web
 build_property.RootNamespace = LearningManagementSystem.Web
-build_property.ProjectDir = C:\Users\esinb\OneDrive\Documents\GitHub\Ctrl-Koc\LearningManagementSystem.Web\
+build_property.ProjectDir = C:\Users\EMREBAYKUŞAK\RiderProjects\LearningManagementSystem\LearningManagementSystem.Web\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\esinb\OneDrive\Documents\GitHub\Ctrl-Koc\LearningManagementSystem.Web
+build_property.MSBuildProjectDirectory = C:\Users\EMREBAYKUŞAK\RiderProjects\LearningManagementSystem\LearningManagementSystem.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Auth/Login.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Auth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Auth/Registration.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Auth/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Courses/Create.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Courses/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Courses/Delete.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Courses/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Courses/Details.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Courses/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Courses/Edit.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Courses/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Courses/Index.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Courses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Home/Index.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Shared/Error.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Materials/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Materials/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Materials/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Materials/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Materials/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Users/Create.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Users/Delete.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Users/Details.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Users/Edit.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Users/Index.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/_ViewImports.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/_ViewStart.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/esinb/OneDrive/Documents/GitHub/Ctrl-Koc/LearningManagementSystem.Web/Views/Shared/_Layout.cshtml]
+[C:/Users/EMREBAYKUŞAK/RiderProjects/LearningManagementSystem/LearningManagementSystem.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-j6ogo55vt4
