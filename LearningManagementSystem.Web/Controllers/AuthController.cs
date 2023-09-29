@@ -59,7 +59,7 @@ public class AuthController : Controller
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid payload");
-            var (status, message,token) = await _authService.Registration(model, UserRoles.Admin);
+            var (status, message,token) = await _authService.Registration(model);
             if (status == 0)
             {
                 return BadRequest(message);

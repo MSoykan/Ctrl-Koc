@@ -23,7 +23,7 @@ public class AuthService : IAuthService
             _configuration = configuration;
 
         }
-        public async Task<(int,string,string)> Registration(RegistrationModel model,string role)
+        public async Task<(int,string,string)> Registration(RegistrationModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
             if (userExists != null)
@@ -37,17 +37,17 @@ public class AuthService : IAuthService
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Password = model.Password,
-                Role = role
+                Role = model.Role
             };
             var createUserResult = await userManager.CreateAsync(user, model.Password);
             if (!createUserResult.Succeeded)
                 return (0, "User creation failed! Please check user details and try again", null);
 
-            if (!await roleManager.RoleExistsAsync(role))
-                await roleManager.CreateAsync(new IdentityRole(role));
+            if (!await roleManager.RoleExistsAsync(model.Role))
+                await roleManager.CreateAsync(new IdentityRole(model.Role));
 
-            if (await roleManager.RoleExistsAsync(role))
-                await userManager.AddToRoleAsync(user, role);
+            if (await roleManager.RoleExistsAsync(model.Role))
+                await userManager.AddToRoleAsync(user, model.Role);
 
             // Generate JWT token for the registered user
             var authClaims = new List<Claim>
