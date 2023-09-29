@@ -6,6 +6,7 @@
 *.suo
 *.user
 *.sln.docstates
+.vs/
 
 # Other common exclusions (you can customize this as needed)
 bin/
