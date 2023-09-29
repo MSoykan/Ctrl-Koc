@@ -55,6 +55,13 @@
                 <input asp-for="Password" type="password" id="password" name="password" required>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select asp-for="Role" id="role" name="role" required>
+                    <option value=@UserRoles.Student>Student</option>
+                    <option value=@UserRoles.Instructor>Instructor</option>
+                </select>
+            </div>
            
             <button type="submit" asp-controller="Auth" asp-action="Register">Create an Account</button>
 
