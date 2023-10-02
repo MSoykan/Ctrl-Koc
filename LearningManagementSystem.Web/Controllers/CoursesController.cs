@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LearningManagementSystem.Web.Models;
+using LearningManagementSystem.Web.Utils;
 using LearningManagementSystem.Web.ViewModels;
 using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
 using Microsoft.Extensions.FileProviders;
@@ -36,6 +37,9 @@ namespace LearningManagementSystem.Web.Controllers
                     MaterialDescription = x.Material.Description,
                     MaterialTitle = x.Material.Title
                 }).ToList();
+            
+            var isInstructor = JwtUtils.IsUserInstructorBasedOnToken(HttpContext);
+            ViewData["IsInstructor"] = isInstructor;
             return View(courseViewModels);
         }
 
@@ -71,7 +75,12 @@ namespace LearningManagementSystem.Web.Controllers
         // GET: Courses/Create
         public IActionResult Create()
         {
-            return View();
+            if (JwtUtils.IsUserInstructorBasedOnToken(HttpContext))
+            {
+                return View();
+            }
+            return Unauthorized();
+            
         }
 
         // POST: Courses/Create
@@ -81,12 +90,31 @@ namespace LearningManagementSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CourseViewModel newCourse)
         {
-            IActionResult result = null;
+            
+            if (JwtUtils.IsUserInstructorBasedOnToken(HttpContext))
+            {
+                IActionResult result = null;
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var assignmentList = new List<Assignment>();
+
+                    foreach (var assignmentViewModel in newCourse.AssignmentViewModels)
+                    {
+                        var assignment = new Assignment
+                        {
+                            Title = assignmentViewModel.Title,
+                            Description = assignmentViewModel.Description,
+                            DueDate = assignmentViewModel.DueTime
+                        };
+
+                        assignmentList.Add(assignment); // Add the new assignment to the list
+                    }
+
+// Now, assignmentList contains separate assignments with unique values
+
                     // Create a new Material object and map properties from CourseViewModel
                     var material = new Material
                     {
@@ -100,7 +128,8 @@ namespace LearningManagementSystem.Web.Controllers
                     {
                         Title = newCourse.Title,
                         Description = newCourse.Description,
-                        Material = material // Establish the relationship between Course and Material
+                        Material = material,
+                        Assignments = assignmentList// Establish the relationship between Course and Material
                     };
 
                     if (newCourse.Image is { Length: > 0 })
@@ -133,6 +162,9 @@ namespace LearningManagementSystem.Web.Controllers
                 result = View();
             }
             return result;
+            }
+            return Unauthorized();
+            
         }
 
 

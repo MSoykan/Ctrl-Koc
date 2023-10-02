@@ -13,4 +13,5 @@ public class CourseViewModel
     public IFormFile? Image { get; set; }
     [ValidateNever]
     public string? ImagePath { get; set; }
+    public List<AssignmentViewModel> AssignmentViewModels { get; set; }
 }

@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Courses" asp-action="Create" method="post" enctype="multipart/form-data" >
+        <form asp-controller="Courses" asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -22,33 +22,59 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <button type="button" id="addMaterialButton" class="btn btn-secondary">Add Material</button>
             </div>
-            
+
             <div class="material-fields">
-
-            <div class="form-group">
-                            <label asp-for="MaterialTitle" class="control-label"></label>
-                            <input asp-for="MaterialTitle" class="form-control" />
-                            <span asp-validation-for="MaterialTitle" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="MaterialDescription" class="control-label"></label>
-                            <input asp-for="MaterialDescription" class="form-control" />
-                            <span asp-validation-for="MaterialDescription" class="text-danger"></span>
-                        </div>
-
-           
-            <div>
-                <label for="formFileLg" class="form-label">Product Image</label>
-                <input class="form-control form-control-lg mb-3" asp-for="Image" type="file">
+                <div class="form-group">
+                    <label asp-for="MaterialTitle" class="control-label"></label>
+                    <input asp-for="MaterialTitle" class="form-control" />
+                    <span asp-validation-for="MaterialTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaterialDescription" class="control-label"></label>
+                    <input asp-for="MaterialDescription" class="form-control" />
+                    <span asp-validation-for="MaterialDescription" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="form-control form-control-lg mb-3" asp-for="Image" type="file">
+                </div>
             </div>
-               <button class="btn btn-dark" type="submit">Save Course</button>
 
-    </div>
+            <!-- Add Assignment Fields -->
+            <div class="assignment-fields">
+                <h4>Assignments</h4>
+                <div class="assignment">
+                    <div class="form-group">
+                        <label asp-for="AssignmentViewModels[0].Title" class="control-label" for="AssignmentViewModels_0__Title"></label>
+                        <input asp-for="AssignmentViewModels[0].Title" class="form-control" id="AssignmentViewModels_0__Title" name="AssignmentViewModels[0].Title" />
+                        <span asp-validation-for="AssignmentViewModels[0].Title" class="text-danger"></span>
+                    </div>
 
+
+                    <div class="form-group">
+                        <label asp-for="AssignmentViewModels[0].Description" class="control-label" for="AssignmentViewModels_0__Description"></label>
+                        <input asp-for="AssignmentViewModels[0].Description" class="form-control" id="AssignmentViewModels_0__Description" name="AssignmentViewModels[0].Description" />
+                        <span asp-validation-for="AssignmentViewModels[0].Description" class="text-danger"></span>
+                    </div>
+
+                <div class="form-group">
+                    <label asp-for="AssignmentViewModels[0].DueTime" class="control-label" for="AssignmentViewModels_0__DueTime"></label>
+                    <input asp-for="AssignmentViewModels[0].DueTime" class="form-control" id="AssignmentViewModels_0__DueTime" name="AssignmentViewModels[0].DueTime" type="datetime-local" />
+                    <span asp-validation-for="AssignmentViewModels[0].DueTime" class="text-danger"></span>
+                </div>
+                </div>
+                <!-- Add a new button for adding materials -->
+            
+            </div>
+            <div class="form-group">
+                            <button type="button" id="addAssignmentButton" class="btn btn-secondary">Add Assignment</button>
+                        </div>
+
+
+            <button class="btn btn-dark" type="submit">Save Course</button>
         </form>
     </div>
 </div>
@@ -60,14 +86,58 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // Hide the Material form fields initially
+            // Hide the Material and Assignment form fields initially
             $('.material-fields').hide();
-
+            $('.assignment-fields').hide();
+        
             // Toggle Material form fields when the "Add Material" button is clicked
             $('#addMaterialButton').click(function () {
                 $('.material-fields').toggle();
             });
-        });
-    </script>
-}
+        
+            // Function to add Assignment fields dynamically
+            var assignmentCounter = 0; // Start with 0 since you want one form initially
+        
+            $('#addAssignmentButton').click(function () {
+                // If there are no existing assignment fields, add the first one and show the container
+                if (assignmentCounter == 0) {
+                    $('.assignment-fields').show();
+                } else {
+                    // If there are existing assignment fields, add a new one with proper labels
+                    var assignmentFields = $('#assignmentFieldsTemplate').html();
+                    assignmentFields = assignmentFields.replace(/_index_/g, assignmentCounter);        
+                    // Update the labels in the new assignment fields
+                    var newLabels = 'for="AssignmentViewModels_' + assignmentCounter + '__"';
+                    assignmentFields = assignmentFields.replace(/for="AssignmentViewModels_0__/g, newLabels);
+                    assignmentFields = assignmentFields.replace(/name="AssignmentViewModels_0__/g, newLabels);
+                    $('.assignment-fields').append(assignmentFields);
+                    $('.assignment-fields').show();
+                }
+                assignmentCounter++; // Increment counter
 
+            });
+        });
+
+</script>
+    <!-- HTML template for Assignment fields -->
+   <script type="text/template" id="assignmentFieldsTemplate">
+       <div class="assignment">
+           <div class="form-group">
+               <label asp-for="AssignmentViewModels[_index_].Title" class="control-label" for="AssignmentViewModels__index___Title">Title</label>
+               <input asp-for="AssignmentViewModels[_index_].Title" class="form-control" id="AssignmentViewModels__index___Title" name="AssignmentViewModels[_index_].Title" />
+               <span asp-validation-for="AssignmentViewModels[_index_].Title" class="text-danger"></span>
+           </div>
+           <div class="form-group">
+               <label asp-for="AssignmentViewModels[_index_].Description" class="control-label" for="AssignmentViewModels__index___Description">Description</label>
+               <input asp-for="AssignmentViewModels[_index_].Description" class="form-control" id="AssignmentViewModels__index___Description" name="AssignmentViewModels[_index_].Description" />
+               <span asp-validation-for="AssignmentViewModels[_index_].Description" class="text-danger"></span>
+           </div>
+           <div class="form-group">
+               <label asp-for="AssignmentViewModels[_index_].DueTime" class="control-label" for="AssignmentViewModels__index___DueTime">Due Date</label>
+               <input asp-for="AssignmentViewModels[_index_].DueTime" class="form-control" id="AssignmentViewModels__index___DueTime" name="AssignmentViewModels[_index_].DueTime" type="datetime-local" />
+               <span asp-validation-for="AssignmentViewModels[_index_].DueTime" class="text-danger"></span>
+           </div>
+       </div>
+   </script>
+
+}
